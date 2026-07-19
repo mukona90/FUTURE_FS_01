@@ -121,7 +121,7 @@ export default function ContactSection() {
             color: 'rgba(255,255,255,0.25)',
             letterSpacing: '0.1em',
           }}>
-            © 2026 Mukonazwothe Mudau — Built with React &amp; passion
+            © 2026 Mukonazwothe Mudau — Building things that work. Breaking things to learn why.
           </p>
         </div>
       </SectionWrap>
