@@ -1,48 +1,16 @@
 import SectionWrap from "../SectionWrap"
 import SectionHeading from "../SectionHeading"
+import { skillsGroups } from "../../data/skills"
+import { skillsBadges } from "../../data/skills"
 
 export default function SkillsSection() {
-    const groups = [
-      {
-        category: 'Frontend',
-        skills: [
-          { name: 'React / React Native / Next.js', level: 88 },
-          { name: 'TypeScript', level: 82 },
-          { name: 'Tailwind CSS', level: 90 },
-          { name: 'HTML / CSS / JavaScript', level: 95 },
-        ],
-      },
-      {
-        category: 'Backend',
-        skills: [
-          { name: 'Node.js / Express', level: 80 },
-          { name: 'Python', level: 75 },
-          { name: 'REST APIs', level: 85 },
-          { name: 'PostgreSQL & MySQL', level: 88 },
-          { name: 'Java', level: 90 },
-          { name: 'C#', level: 85 },
-        ],
-      },
-      {
-        category: 'Tools & Other',
-        skills: [
-          { name: 'Git / GitHub', level: 90 },
-          { name: 'Docker', level: 65 },
-          { name: 'Postman', level: 78 },
-          { name: 'Figma', level: 70 },
-        ],
-      },
-    ]
-  
-    const badges = ['React', 'TypeScript', 'Node.js', 'Python', 'Next.js', 'PostgreSQL', 'MySQL', 'Docker', 'Git', 'Postman', 'REST APIs', 'Tailwind', 'Express', 'Django', 'Figma', 'Java', 'C#', 'React Native', 'JWT', 'Resend', 'Vite', 'Convex', 'bcrypt', 'axios']
-  
     return (
       <SectionWrap id="skills">
         <SectionHeading label="// 02. skills" title="What I Work With" />
   
         {/* Skill bars */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
-          {groups.map(group => (
+            {skillsGroups.map(group => (
             <div key={group.category}>
               <p style={{
                 fontFamily: "'JetBrains Mono', monospace",
@@ -79,7 +47,7 @@ export default function SkillsSection() {
   
         {/* Badge cloud */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
-          {badges.map(b => (
+          {skillsBadges.map(b => (
             <span
               key={b}
               style={{
