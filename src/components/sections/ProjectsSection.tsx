@@ -1,58 +1,8 @@
 import SectionWrap from "../SectionWrap"
 import SectionHeading from "../SectionHeading"
+import { projects } from "../../data/projects"
 
 export default function ProjectsSection() {
-    const projects = [
-      {
-        id: '01',
-        name: 'Shuttles and Tours Management System',
-        desc: 'A full-stack application for managing shuttles and tours. It allows users to view and book shuttles and tours.',
-        tech: ['React', 'Node.js', 'PostgreSQL', 'Socket.io'],
-        status: 'In Dev',
-        featured: true,
-      },
-      {
-        id: '02',
-        name: 'Pothole Route Finder',
-        desc: 'A full-stack application for finding pothole routes. It allows users to view and report pothole routes.',
-        tech: ['Java', 'Java Swing', 'Dijkstra\'s Algorithm', 'Graphs'],
-        status: 'Live',
-        featured: true,
-      },
-      {
-        id: '03',
-        name: 'Focus Board Todo App',
-        desc: 'A full-stack application for managing todo lists. It allows users to view and manage todo lists.',
-        tech: ['React Native', 'Expo', 'Expo Router', 'TypeScript', 'Convex'],
-        status: 'Live',
-        featured: true,
-      },
-      {
-        id: '04',
-        name: 'MovieFinder',
-        desc: 'A full-stack application for finding movies. It allows users to view and search for movies.',
-        tech: ['React', 'Node.js', 'PostgreSQL', 'Express', 'Axios', 'React Router'],
-        status: 'In Dev',
-        featured: false,
-      },
-      {
-        id: '05',
-        name: 'NoteStack',
-        desc: 'Markdown-first note-taking app with real-time collaboration, tagging, and full-text search across notebooks.',
-        tech: ['Next.js', 'MongoDB', 'WebSockets'],
-        status: 'Live',
-        featured: false,
-      },
-      {
-        id: '06',
-        name: 'WeatherNow',
-        desc: 'Elegant weather dashboard with 7-day forecasts, interactive maps, and severe weather alerts via public APIs.',
-        tech: ['React', 'OpenWeather API', 'Mapbox'],
-        status: 'Open Source',
-        featured: false,
-      },
-    ]
-  
     const statusColor: Record<string, string> = {
       Live: '#00ff41',
       'Open Source': '#00aaff',
