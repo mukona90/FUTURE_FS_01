@@ -1,6 +1,7 @@
 import SectionWrap from "../SectionWrap"
 import SectionHeading from "../SectionHeading"
 import { useState } from "react"
+import { socials } from "../../data/socials"
 
 export default function ContactSection() {
     const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -25,11 +26,6 @@ export default function ContactSection() {
       transition: 'border-color 0.2s',
       boxSizing: 'border-box',
     }
-  
-    const socials = [
-      { label: 'GitHub', handle: 'https://github.com/mukona90', icon: '◆' },
-      { label: 'LinkedIn', handle: 'https://www.linkedin.com/in/mukonazwothe-mudau-04085516b', icon: '◆' },
-    ]
   
     return (
       <SectionWrap id="contact">
