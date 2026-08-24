@@ -5,13 +5,40 @@ import { socials } from "../../data/socials"
 
 export default function ContactSection() {
     const [form, setForm] = useState({ name: '', email: '', message: '' })
+    const [sending, setSending] = useState(false)
     const [sent, setSent] = useState(false)
+    const [error, setError] = useState('')
   
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault()
-      setSent(true)
-      setTimeout(() => setSent(false), 4000)
-      setForm({ name: '', email: '', message: '' })
+      setSending(true)
+      setError('')
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            message: form.message,
+          }),
+        })
+
+        if (!response.ok) {
+          throw new Error('Failed to send message')
+        }
+
+        setSent(true)
+        setForm({ name: '', email: '', message: '' })
+        setTimeout(() => setSent(false), 4000)
+      } catch {
+        setError('Could not send message. Please try again.')
+      } finally {
+        setSending(false)
+      }
     }
   
     const inputStyle: React.CSSProperties = {
@@ -38,15 +65,37 @@ export default function ContactSection() {
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {socials.map(s => (
-                <div key={s.label} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <a
+                  key={s.label}
+                  href={s.handle}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    textDecoration: 'none',
+                    padding: '0.45rem 0.35rem',
+                    border: '1px solid transparent',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(0,255,65,0.25)'
+                    ;(e.currentTarget as HTMLAnchorElement).style.background = 'rgba(0,255,65,0.04)'
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'transparent'
+                    ;(e.currentTarget as HTMLAnchorElement).style.background = 'transparent'
+                  }}
+                >
                   <span style={{ color: '#00ff41', fontSize: '0.5rem' }}>{s.icon}</span>
                   <div>
                     <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.65rem', color: 'rgba(0,255,65,0.6)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                       {s.label}
                     </div>
-                    <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>{s.handle}</div>
+                    <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>{s.display ?? s.handle}</div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -85,6 +134,7 @@ export default function ContactSection() {
             />
             <button
               type="submit"
+              disabled={sending}
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: '0.85rem',
@@ -93,14 +143,20 @@ export default function ContactSection() {
                 background: sent ? '#33ff6b' : '#00ff41',
                 border: 'none',
                 padding: '0.8rem',
-                cursor: 'pointer',
+                cursor: sending ? 'not-allowed' : 'pointer',
+                opacity: sending ? 0.75 : 1,
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 transition: 'all 0.2s',
               }}
             >
-              {sent ? '✓ Message Sent!' : 'Send Message →'}
+              {sending ? 'Sending...' : sent ? '✓ Message Sent!' : 'Send Message →'}
             </button>
+            {error ? (
+              <p style={{ margin: 0, color: '#ff6b6b', fontSize: '0.8rem' }}>
+                {error}
+              </p>
+            ) : null}
           </form>
         </div>
   
