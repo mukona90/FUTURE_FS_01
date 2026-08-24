@@ -87,7 +87,10 @@ export default function ResumeSection() {
   
             {/* Download CV button */}
             <div style={{ marginTop: '2.5rem' }}>
-              <button
+              <a
+                href="/Mukonazwothe_Mudau_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   fontFamily: "'JetBrains Mono', monospace",
                   fontSize: '0.82rem',
@@ -100,15 +103,14 @@ export default function ResumeSection() {
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   transition: 'all 0.2s',
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
+                  textDecoration: 'none',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.background = '#33ff6b')}
-                onMouseLeave={e => (e.currentTarget.style.background = '#00ff41')}
               >
-                ↓ Download CV
-              </button>
+                ↓ Open CV
+              </a>
             </div>
           </div>
         </div>
