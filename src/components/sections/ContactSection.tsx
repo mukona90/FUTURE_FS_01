@@ -27,15 +27,17 @@ export default function ContactSection() {
           }),
         })
 
+        const payload = await response.json().catch(() => null)
         if (!response.ok) {
-          throw new Error('Failed to send message')
+          throw new Error(payload?.error || 'Failed to send message')
         }
 
         setSent(true)
         setForm({ name: '', email: '', message: '' })
         setTimeout(() => setSent(false), 4000)
-      } catch {
-        setError('Could not send message. Please try again.')
+      } catch (err) {
+        const messageText = err instanceof Error ? err.message : 'Could not send message. Please try again.'
+        setError(messageText)
       } finally {
         setSending(false)
       }
