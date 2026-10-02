@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import type { Section } from '../../types'
 import SectionWrap from '../SectionWrap'
 
-const TITLES = ['Full Stack Developer', 'Problem Solver', 'Software Engineer', 'Cyber Security and Networking']
+const TITLES = ['Full Stack Developer', 'Software Engineer']
 
 export default function HomeSection({ onNav }: { onNav: (s: Section) => void }) {
     const [typed, setTyped] = useState('')

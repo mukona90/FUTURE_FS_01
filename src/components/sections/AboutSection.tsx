@@ -3,30 +3,30 @@ import SectionHeading from "../SectionHeading"
 
 export default function AboutSection() {
     const stats = [
-      { label: 'Years Coding', value: '3+' },
-      { label: 'Projects Built', value: '10+' },
-      { label: 'Technologies', value: '15+' },
-      { label: 'Coffee / day', value: '∞' },
+      { label: 'Years coding', value: '3+' },
+      { label: 'Shipped systems', value: '2' },
+      { label: 'Focus', value: 'Full stack' },
+      { label: 'Based in', value: 'SA' },
     ]
-  
+
     return (
       <SectionWrap id="about">
         <SectionHeading label="// 01. about_me" title="Who I Am" />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'start' }}>
           <div>
             <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, marginBottom: '1.2rem', fontSize: '0.95rem' }}>
-              I'm <strong style={{ color: '#00ff41' }}>Mukonazwothe Mudau</strong> — a passionate software developer who loves turning complex problems into elegant, efficient solutions.
+              I'm <strong style={{ color: '#00ff41' }}>Mukonazwothe Mudau</strong>, a full-stack developer finishing a BSc in Information Technology (Computer Science & Informatics) at the University of Johannesburg.
             </p>
             <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, marginBottom: '1.2rem', fontSize: '0.95rem' }}>
-              I thrive at the intersection of clean code and beautiful UI, crafting full-stack applications that are both powerful under the hood and a joy to use. When I'm not coding, I'm exploring algorithms, contributing to open source, or deep in a side project.
+              I build production web systems end to end: React and TypeScript on the client, Express and PostgreSQL on the server, auth, payments, and real-time updates. My live project is a student accommodation platform covering applications, leases, rent collection, maintenance, and staff portals.
             </p>
             <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontSize: '0.95rem' }}>
-              I believe great software is built with intention — every line of code should serve a purpose, every interface should tell a story.
+              I care about clear product flows, secure role-based access, and software that residence staff and students can actually use. Open to junior or graduate full-stack roles.
             </p>
-  
+
             <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
               {[
-                ['Location', 'South Africa 🇿🇦'],
+                ['Location', 'South Africa'],
                 ['Email', 'mukonazwothemudau90@gmail.com'],
                 ['Available', 'Open to opportunities'],
               ].map(([k, v]) => (
@@ -37,8 +37,7 @@ export default function AboutSection() {
               ))}
             </div>
           </div>
-  
-          {/* Stats grid */}
+
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
             {stats.map(s => (
               <div
@@ -60,7 +59,7 @@ export default function AboutSection() {
                   ;(e.currentTarget as HTMLDivElement).style.background = 'rgba(0,255,65,0.04)'
                 }}
               >
-                <div style={{ fontSize: '2rem', fontWeight: 800, color: '#00ff41', fontFamily: "'JetBrains Mono', monospace" }}>
+                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#00ff41', fontFamily: "'JetBrains Mono', monospace" }}>
                   {s.value}
                 </div>
                 <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em', marginTop: '0.4rem' }}>

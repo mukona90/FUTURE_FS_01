@@ -88,7 +88,7 @@ export default function ResumeSection() {
             {/* Download CV button */}
             <div style={{ marginTop: '2.5rem' }}>
               <a
-                href="/Mukonazwothe_Mudau_CV.pdf"
+                href="/Mukonazwothe_Mudau_CV_A.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

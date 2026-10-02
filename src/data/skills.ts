@@ -2,32 +2,49 @@ export const skillsGroups = [
     {
       category: 'Frontend',
       skills: [
-        { name: 'React / React Native / Next.js', level: 88 },
-        { name: 'TypeScript', level: 82 },
+        { name: 'React + TypeScript', level: 88 },
+        { name: 'Vite', level: 86 },
         { name: 'Tailwind CSS', level: 90 },
-        { name: 'HTML / CSS / JavaScript', level: 95 },
+        { name: 'HTML / CSS / JavaScript', level: 92 },
       ],
     },
     {
       category: 'Backend',
       skills: [
-        { name: 'Node.js / Express', level: 80 },
-        { name: 'Python', level: 75 },
-        { name: 'REST APIs', level: 85 },
-        { name: 'PostgreSQL & MySQL', level: 88 },
-        { name: 'Java', level: 90 },
-        { name: 'C#', level: 85 },
+        { name: 'Node.js / Express', level: 84 },
+        { name: 'REST + GraphQL APIs', level: 82 },
+        { name: 'Prisma / PostgreSQL', level: 86 },
+        { name: 'Auth (JWT, Supabase)', level: 80 },
       ],
     },
     {
-      category: 'Tools & Other',
+      category: 'Product & ops',
       skills: [
+        { name: 'Socket.IO (real-time)', level: 78 },
+        { name: 'PayFast / payments', level: 74 },
         { name: 'Git / GitHub', level: 90 },
-        { name: 'Docker', level: 65 },
-        { name: 'Postman', level: 78 },
-        { name: 'Figma', level: 70 },
+        { name: 'Vercel + Render', level: 80 },
       ],
     },
   ]
 
-export const skillsBadges = ['React', 'TypeScript', 'Node.js', 'Python', 'Next.js', 'PostgreSQL', 'MySQL', 'Docker', 'Git', 'Postman', 'REST APIs', 'Tailwind', 'Express', 'Django', 'Figma', 'Java', 'C#', 'React Native', 'JWT', 'Resend', 'Vite', 'Convex', 'bcrypt', 'axios']
+export const skillsBadges = [
+  'React',
+  'TypeScript',
+  'Vite',
+  'Tailwind CSS',
+  'Node.js',
+  'Express',
+  'Prisma',
+  'PostgreSQL',
+  'REST APIs',
+  'GraphQL',
+  'Zod',
+  'JWT',
+  'Supabase Auth',
+  'Socket.IO',
+  'PayFast',
+  'Git',
+  'Vercel',
+  'Render',
+]
